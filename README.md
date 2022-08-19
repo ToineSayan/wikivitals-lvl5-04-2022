@@ -76,12 +76,6 @@ The 4000 features have been stored in a vocabulary file.
 
 One-hot representations of the nodes have been recorded in the 'wiki..' files in the './dataset/main/' folder. Each line of these files lists the features present (and only those) in the article designated by its wikiid.
 
-A typical line of these files is reproduced below. It is composed of a wikiid followed by a trailing character ('\t') and a list of features concatenated to a document presence indicator (':1') and separated by spaces. 
-
-```
-3449450	abs_group:1 abs_includ:1 abs_island:1 abs_islet:1 abs_provinc:1 hea_histori:1 tit_island:1
-```
-
 ## Edges
 
 ### List of edges
@@ -91,12 +85,6 @@ The directed edges correspond to HTML links between vital articles in the [names
 Links between articles were collected in the body of vital articles, filtered to keep only those that point to another vial article, and duplicates were removed. 
 
 The list of edges has been saved in files prefixed with '\_\_links\_filtered\_' in the folder './dataset/main/'.
-
-A typical line of these files is reproduced below. It is composed of 2 wikiid and a weight (always 1.0) separated by a trailing character ('\t'). 
-
-```
-100005	674	1.0
-```
 
 ### Edges distribution
 
@@ -116,12 +104,6 @@ Level 2 was built by collecting the highest level headers in the pages listing t
 ### Labels of nodes
 
 The labels of each nodes have been saved in the following file in the folder './dataset/main/' : class0.txt, class1.txt, class2.txt.
-
-A typical line of these files is reproduced below. It is composed of a wikiid and a class name separated by a trailing character ('\t'). 
-
-```
-171038	People ->- Artists, musicians, and composers
-```
 
 
 ### Full hierarchy of labels
