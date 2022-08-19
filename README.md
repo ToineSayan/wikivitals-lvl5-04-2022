@@ -44,7 +44,7 @@ Some useful informations:
 - English stopwords (from nltk.corpus) have been ignored
 - The 4000 features most predictive of level 2 labels (fine classification) in the chi2 sense were retained to reduce the size of the representations.
 
-```
+```python
 # Stemmer - Vectorizer
 
 import nltk.stem
