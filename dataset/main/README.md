@@ -1,5 +1,3 @@
-What's in this directory:
-
 ## Files 
 
 - \_\_wikivitals_features_one_hot_*X*.txt: one-hot representations of the nodes (= vital articles)
