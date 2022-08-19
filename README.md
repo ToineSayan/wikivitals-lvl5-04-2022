@@ -1,5 +1,5 @@
 # wikivitals-lvl5-dataset
-A dataset built from Wikivitals articles
+A dataset built from vitals articles of Wikipedia - Level 5
 
 
 ## Description of the dataset
@@ -10,7 +10,7 @@ Vital articles have been grouped into sections by different Wikipedia contributo
 
 ## General values
 
-| #Nodes | #Edges | #Features | #Labels | Homophily<sup>1</sup> | Outgoing degree |
+| #Nodes | #Edges | #Features | #Labels | Edge homophily<sup>1</sup> | Outgoing degree |
 | ---: | ---: | ---: | ---: | ---: | ---: |
 | 48,512 | *directed:* 2,297,782 <br/> *undirected:* 4,132,534 | 4000 | *lvl 0 (coarse):* 11 <br/> *lvl 1 (intermediary):* 32 <br/> *lvl 2 (fine):* 230 |  *lvl 0 (coarse):* 0.34 <br/> *lvl 1 (intermediary):* 0.24 <br/> *lvl 2 (fine):* 0.15 | *avg.:* 85.19 (141.23) <br/> *max:* 7,720 <br/> *min:* 0 (16 nodes) | 
 
