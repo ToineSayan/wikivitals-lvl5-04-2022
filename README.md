@@ -1,5 +1,7 @@
-# wikivitals-lvl5-dataset
-A dataset built from vitals articles of Wikipedia - Level 5
+# [dataset] wikivitals-lvl5-04-2022
+A dataset built from vitals articles of Wikipedia - Level 5 in April 2022.
+
+Used in [Fair Evaluation of Graph Markov Neural Networks]([https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/5](https://arxiv.org/abs/2304.01235)) (under review)
 
 
 ## Description of the dataset
