@@ -43,13 +43,59 @@ Below an entry of the corpus loaded:
 
 ```python
 {
-	'id': '10152440'
-	'abstract': ['Dallasaurus Dallas lizard is a basal mosasauroid from the Upper Cretaceous of North America. Along with Russellosaurus Dallasaurus is one of the two oldest mosasauroid taxa currently known from North America. This small semi aquatic lizard measured less than a meter in length compared to such gigantic derived mosasaurs as Tylosaurus and Mosasaurus each exceeding 14 meters.'],
-	'label': ['Biological and health sciences', 'Animals', 'Reptiles'],
-	'title': 'Dallasaurus',
-	'headers': ['Specimens', 'Anatomy', 'Classification', 'References', 'Sources'],
-	'outcoming_links_filtered': ['800373', '32031', '210294', '554469', '331755', '2051142', '2469649', '38493', '44211', '227807', '166945', '21139', '29810', '585732'],
-	'binary_features': ['abs_america', 'abs_aquat', 'abs_basal', 'abs_cretac', 'abs_current', 'abs_deriv', 'abs_known', 'abs_length', 'abs_lizard', 'abs_measur', 'abs_meter', 'abs_north', 'abs_north_america', 'abs_oldest', 'abs_small', 'abs_two', 'hea_classif', 'hea_sourc']
+    "id": "10152440", # current version of the article: https://en.wikipedia.org/?curid=10152440
+    "abstract": [
+        "Dallasaurus Dallas lizard is a basal mosasauroid from the Upper Cretaceous of North America. Along with Russellosaurus Dallasaurus is one of the two oldest mosasauroid taxa currently known from North America. This small semi aquatic lizard measured less than a meter in length  compared to such gigantic derived mosasaurs as Tylosaurus and Mosasaurus each exceeding 14 meters."
+    ], 
+    "label": [
+        "Biological and health sciences", # level 0 label: "coarse granularity" label
+        "Animals", # level 1 label: "intermediate granularity" label
+        "Reptiles" # level 2 label: "fine granularity" label
+    ], 
+    "title": "Dallasaurus", 
+    "headers": [
+        "Specimens", 
+        "Anatomy", 
+        "Classification", 
+        "References", 
+        "Sources"
+    ], 
+    "outcoming_links_filtered": [
+        "800373", # Mosasaur
+        "32031", # University of Texas at Austin
+        "210294", # Ulna
+        "554469", # Stratum
+        "331755", # Transitional fossil
+        "2051142", # Mosasaurus
+        "2469649", # Tylosaurus
+        "38493", # Genus
+        "44211", # Shale
+        "227807", # Humerus
+        "166945", # Cartilage
+        "21139", # North America
+        "29810", # Texas
+        "585732" # Radius (bone)
+    ],
+    "binary_features": [
+        "abs_america", 
+        "abs_aquat", 
+        "abs_basal", 
+        "abs_cretac", 
+        "abs_current", 
+        "abs_deriv", 
+        "abs_known", 
+        "abs_length",
+        "abs_lizard", 
+        "abs_measur", 
+        "abs_meter", 
+        "abs_north", 
+        "abs_north_america", # a bigram from the abstract
+        "abs_oldest", 
+        "abs_small", 
+        "abs_two", 
+        "hea_classif", # a unigram from a section or sub-section title
+        "hea_sourc"
+    ]
 }
 ```
  
