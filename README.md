@@ -19,21 +19,39 @@ Vital articles have been grouped into sections by different Wikipedia contributo
 <sup>1</sup> (Edge) homophily = number of edges connecting nodes of the same class / total number of edges
 
 
-## How to reconstruct
+## How to use
 
-**Step 1:** Download the content of this repository
+```python
+main_file = "./dataset/wikivitals-lvl5-04-2022.json"
+additional_file = "./dataset/wikivitals-lvl5-04-2022-binary-representations.json"
 
-**Step 2:** run "python build.py"
-Five files will be created in the root of this repository:
-- wikivitals_features_one_hot.txt
-- links_filtered.txt
-- label_0.txt
-- label_1.txt
-- label_2.txt
-A description of the contents of these files is given in the following sections.
+import json
 
-**(optional) Step 3:** run "python build_npz.py"
-An .npz file (wikivitals.npz) will be created at the root of the repository
+corpus = {}
+with open(main_file, 'r', encoding='utf8') as f:
+    for row in f:
+        entry = json.loads(row)
+        corpus[entry["id"]] = entry
+    
+with open(additional_file, 'r', encoding='utf8') as add_f:
+    for row in add_f:
+        entry = json.loads(row)
+        corpus[entry["id"]]["binary_features"] = entry["binary_features"]
+```
+
+Below an entry of the corpus loaded:
+
+```python
+{
+	'id': '10152440'
+	'abstract': ['Dallasaurus Dallas lizard is a basal mosasauroid from the Upper Cretaceous of North America. Along with Russellosaurus Dallasaurus is one of the two oldest mosasauroid taxa currently known from North America. This small semi aquatic lizard measured less than a meter in length compared to such gigantic derived mosasaurs as Tylosaurus and Mosasaurus each exceeding 14 meters.'],
+	'label': ['Biological and health sciences', 'Animals', 'Reptiles'],
+	'title': 'Dallasaurus',
+	'headers': ['Specimens', 'Anatomy', 'Classification', 'References', 'Sources'],
+	'outcoming_links_filtered': ['800373', '32031', '210294', '554469', '331755', '2051142', '2469649', '38493', '44211', '227807', '166945', '21139', '29810', '585732'],
+	'binary_features': ['abs_america', 'abs_aquat', 'abs_basal', 'abs_cretac', 'abs_current', 'abs_deriv', 'abs_known', 'abs_length', 'abs_lizard', 'abs_measur', 'abs_meter', 'abs_north', 'abs_north_america', 'abs_oldest', 'abs_small', 'abs_two', 'hea_classif', 'hea_sourc']
+}
+```
  
 ## Features
 
@@ -61,22 +79,6 @@ class StemmedCountVectorizer(CountVectorizer):
 
 vectorizer = StemmedCountVectorizer(stop_words=stopwords.words('english'), ngram_range=(1, 2), min_df=0.001)
 ```
-### Feature names
-
-Each feature starts with a 3 letter prefix that indicates the origin of the stem:
-- 'abs' for abstracts (.../4000 features (xx%))
-- 'tit' for titles (.../4000 features (xx%))
-- 'hea' for headers in the articles (.../4000 features (xx%))
-
-For example:
-- 'abs_group' is a feature from the stemming of abstracts (prefix 'abs') and corresponds to the unigram whose stem is 'group'.
-- 'hea_personal_lif' is a feature from the stemming of headers (prefix 'hea') and corresponds to the bigram whose stems are ('personal','lif').
-
-The 4000 features have been stored in a vocabulary file.
-
-### Node representations
-
-One-hot representations of the nodes have been recorded in the 'wiki..' files in the './dataset/main/' folder. Each line of these files lists the features present (and only those) in the article designated by its wikiid.
 
 ## Edges
 
@@ -105,7 +107,7 @@ Level 2 was built by collecting the highest level headers in the pages listing t
 
 ### Labels of nodes
 
-The labels of each nodes have been saved in the following file in the folder './dataset/main/' : class0.txt, class1.txt, class2.txt.
+The labels of each nodes have been saved in the following file in the folder './dataset/main/' : __class0.txt, __class1.txt, __class2.txt.
 
 
 ### Full hierarchy of labels
