@@ -1,14 +1,23 @@
 # [dataset] wikivitals-lvl5-04-2022
 A dataset built from vitals articles of Wikipedia - Level 5 in April 2022.
 
-Used in [Fair Evaluation of Graph Markov Neural Networks](https://arxiv.org/abs/2304.01235) (under review)
+Dataset used in:
+* [Fair Evaluation of Graph Markov Neural Networks](https://arxiv.org/abs/2304.01235) (2023), P. Lemberger & A. Saillenfest (under review)
 
 
 ## Description of the dataset
 
-This dataset is composed of one-hot representations of [Wikipedia's vital level 5 articles](https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/5) (retrieved from [an archive dated April 01, 2022 (no more available from this website)](https://dumps.wikimedia.org/enwiki/)). <br/>
-A graph structure was added by collecting HTML links between the vital articles present in the body of the articles. Vital articles are the nodes of the graph and HTML links define directed edges between these nodes. <br/>
-Vital articles have been grouped into sections by different Wikipedia contributors; these sections and their subsections have been used to assign to each article 3 levels of classification, the highest level defining a coarse classification and the lowest a fine classification of vital articles.
+This dataset was created from [Wikipedia's vital level 5 articles](https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/5) (retrieved from [an archive dated April 01, 2022 (no more available from this website)](https://dumps.wikimedia.org/enwiki/)). It is a **corpus of documents** with an **underlying graph structure**. Each document is associated with a set of 3 labels that form a path in **a label hierarchy**, thus defining **labeling at various levels of granularity**.
+
+
+## Potential applications
+
+The dataset can be used to perform the following tasks:
+* single label classification
+* multi-label classification
+* edge prediction
+
+
 
 ## General values
 
@@ -102,7 +111,7 @@ Below an entry of the corpus loaded:
 ## Features
 
 ### General information
-The features used to represent the articles come from one-hot representations of the article abstracts (first paragraph before the first section title in the body of the article), the article titles and the headers present in the body of the article (section and subsection titles).
+The features used to represent the articles come from binary representations of the article abstracts (first paragraph before the first section title in the body of the article), the article titles and the headers present in the body of the article (section and subsection titles).
 
 Some useful informations:
 - The stemmer SnowballStemmer of nltk was used 
@@ -126,15 +135,15 @@ class StemmedCountVectorizer(CountVectorizer):
 vectorizer = StemmedCountVectorizer(stop_words=stopwords.words('english'), ngram_range=(1, 2), min_df=0.001)
 ```
 
-## Edges
+## Underlying graph structure
 
-### List of edges
+### General information
+
+A graph structure was added by collecting HTML links between the vital articles present in the body of the articles. Vital articles are the nodes of the graph and HTML links define directed edges between these nodes. 
 
 The directed edges correspond to HTML links between vital articles in the [namespace 0](https://en.wikipedia.org/wiki/Wikipedia:What_is_an_article%3F#Namespace). 
 
-Links between articles were collected in the body of vital articles, filtered to keep only those that point to another vial article, and duplicates were removed. 
-
-The list of edges has been saved in files prefixed with '\_\_links\_filtered\_' in the folder './dataset/main/'.
+Links between articles were collected in the body of vital articles. The links collected have been filtered so as to retain only those linking two documents in the corpus, and to remove duplicates.
 
 ### Edges distribution
 
@@ -147,14 +156,11 @@ The list of edges has been saved in files prefixed with '\_\_links\_filtered\_' 
 
 Vital articles have been grouped into sections by different Wikipedia contributors; these sections and their subsections have been used to assign to each article 3 levels of classification, the highest level defining a coarse classification and the lowest a fine classification of vital articles.
 
-Levels 0 and 1 corresponds to sections and subsections on the main page of Vital articles ([this page](https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/5) for the current version, but don't forget we used an archive from April 1st, 2022 to construct the dataset).
+**Important: we used an archive from April 1st, 2022 to construct the dataset**
 
-Level 2 was built by collecting the highest level headers in the pages listing the vital articles of each section corresponding to level 1 (for example [this page](https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/5/Physical_sciences/Astronomy) for a current version, but don't forget we used an archive from April 1st, 2022 to construct the dataset)
+Levels 0 and 1 corresponds to sections and subsections on the main page of Vital articles ([this page](https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/5) for the current online version).
 
-### Labels of nodes
-
-The labels of each nodes have been saved in the following file in the folder './dataset/main/' : __class0.txt, __class1.txt, __class2.txt.
-
+Level 2 was built by collecting the highest level headers in the pages listing the vital articles of each section corresponding to level 1 (for example [this page](https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/5/Physical_sciences/Astronomy) for a current online version)
 
 ### Full hierarchy of labels
 ```
