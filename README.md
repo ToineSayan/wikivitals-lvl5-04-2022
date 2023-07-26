@@ -23,7 +23,7 @@ The dataset can be used to perform the following tasks:
 
 | #Nodes | #Edges | #Features | #Labels | Edge homophily<sup>1</sup> | Outgoing degree |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-| 48,512 | *directed:* 2,297,782 <br/> *undirected:* 4,132,534 | 4000 | *lvl 0 (coarse):*  11 <br/> *lvl 1 (intermediary):*  32 <br/> *lvl 2 (fine):* 251 |  *lvl 0 (coarse):* 0.34 <br/> *lvl 1 (intermediary):* 0.24 <br/> *lvl 2 (fine):* 0.15 | *avg.:* 85.19 (141.23) <br/> *max:* 7,720 <br/> *min:* 0 (16 nodes) | 
+| 48,512 | *directed:* 2,297,782 <br/> *undirected:* 4,132,534 | 4000 | *level 0:*  11 <br/> *level 1:*  32 <br/> *level 2:* 251 |  *level 0:* 0.34 <br/> *level 1:* 0.24 <br/> *level 2:* 0.15 | *avg.:* 85.19 (141.23) <br/> *max:* 7,720 <br/> *min:* 0 (16 nodes) | 
 
 <sup>1</sup> (Edge) homophily = number of edges connecting nodes of the same class / total number of edges
 
