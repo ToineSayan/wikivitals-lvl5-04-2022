@@ -22,8 +22,8 @@ The dataset can be used to perform the following tasks:
 ## General values
 
 | #Nodes | #Edges | #Features | #Labels | Edge homophily<sup>1</sup> | Outgoing degree |
-| ---: | ---: | ---: | ---: | ---: | ---: |
-| 48,512 | *directed:* 2,297,782 <br/> *undirected:* 4,132,534 | 4000 | *level 0:*  11 <br/> *level 1:*  32 <br/> *level 2:* 251 |  *level 0:* 0.34 <br/> *level 1:* 0.24 <br/> *level 2:* 0.15 | *avg.:* 85.19 (141.23) <br/> *max:* 7,720 <br/> *min:* 0 (16 nodes) | 
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 48,512 | *directed:* 2,297,782 <br/> *undirected:* 4,132,534 | 4000 | *level 0:* 11 <br/> *level 1:* 32 <br/> *level 2:* 251 |  *level 0:* 0.34 <br/> *level 1:* 0.24 <br/> *level 2:* 0.15 | *avg.:* 85.19 (141.23) <br/> *max:* 7,720 <br/> *min:* 0 (16 nodes) | 
 
 <sup>1</sup> (Edge) homophily = number of edges connecting nodes of the same class / total number of edges
 
@@ -111,7 +111,7 @@ Below an entry of the corpus loaded:
 ## Features
 
 ### General information
-The features used to represent the articles come from binary representations of the article abstracts (first paragraph before the first section title in the body of the article), the article titles and the headers present in the body of the article (section and subsection titles).
+The features used to represent the articles have been extracted from the article abstracts (first paragraph before the first section title in the body of the article), the article titles and the headers present in the body of the article (section and subsection titles).
 
 Some useful informations:
 - The stemmer SnowballStemmer of nltk was used 
@@ -135,7 +135,7 @@ class StemmedCountVectorizer(CountVectorizer):
 vectorizer = StemmedCountVectorizer(stop_words=stopwords.words('english'), ngram_range=(1, 2), min_df=0.001)
 ```
 
-## Underlying graph structure
+## Graph of documents
 
 ### General information
 
