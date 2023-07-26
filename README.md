@@ -7,7 +7,7 @@ Dataset used in:
 
 ## Description of the dataset
 
-This dataset was created from [Wikipedia's vital level 5 articles](https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/5) (retrieved from [an archive dated April 01, 2022 (no more available from this website)](https://dumps.wikimedia.org/enwiki/)). It is a **corpus of documents** with an **underlying graph structure**. Each document is associated with a set of 3 labels that form a path in **a label hierarchy**, thus defining **labeling at various levels of granularity**.
+This dataset was created from [Wikipedia's vital level 5 articles](https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/5) (retrieved from [an archive dated April 01, 2022 (no more available from this website)](https://dumps.wikimedia.org/enwiki/)). It is a **corpus of documents** with an **underlying graph structure**. Each document is associated with a set of 3 labels that form a path in **a hierarchy of topics**, thus defining **labeling at various levels of granularity**.
 
 
 ## Potential applications
@@ -156,7 +156,7 @@ Links between articles were collected in the body of vital articles. The links c
 
 Vital articles have been grouped into sections by different Wikipedia contributors; these sections and their subsections have been used to assign to each article 3 levels of classification, the highest level defining a coarse classification and the lowest a fine classification of vital articles.
 
-**Important: we used an archive from April 1st, 2022 to construct the dataset**
+Important note: **we used an archive from April 1st, 2022 to construct the dataset**
 
 Levels 0 and 1 corresponds to sections and subsections on the main page of Vital articles ([this page](https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/5) for the current online version).
 
