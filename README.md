@@ -1,10 +1,6 @@
 # [dataset] wikivitals-lvl5-04-2022
 A dataset built from vitals articles of Wikipedia - Level 5 in April 2022.
 
-Dataset used in:
-* [Fair Evaluation of Graph Markov Neural Networks](https://arxiv.org/abs/2304.01235) (2023), P. Lemberger & A. Saillenfest (under review)
-
-
 ## Description of the dataset
 
 This dataset was created from [Wikipedia's vital level 5 articles](https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/5) (retrieved from [an archive dated April 01, 2022 (no more available from this website)](https://dumps.wikimedia.org/enwiki/)). It is a **corpus of documents** with an **underlying graph structure**. Each document is associated with a set of 3 labels that form a path in **a hierarchy of topics**, thus defining **labeling at various levels of granularity**.
